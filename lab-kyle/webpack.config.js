@@ -8,20 +8,20 @@ module.exports = {
   devtool: 'source map',
   output: {
     filename: 'bundle.[hash].js',
-    path: `${__dirname}/build`
+    path: `${__dirname}/build`,
   },
   plugins: [
     new HTMLPlugin({
-      template: `${__dirname}/src/index.html`
+      template: `${__dirname}/src/index.html`,
     }),
-    new ExtractPlugin('bundle.[hash].css')
+    new ExtractPlugin('bundle.[hash].css'),
   ],
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
       },
       {
         test: /\.scss$/,
@@ -30,20 +30,20 @@ module.exports = {
             {
               loader: 'css-loader',
               options: {
-                sourceMap: true
-              }
+                sourceMap: true,
+              },
             },
-            resolve-url-loader,
+            'resolve-url-loader',
             {
               loader: 'sass-loader',
               options: {
                 sourceMap: true,
-                includePaths: [`${__dirname}/src/style`]
-              }
-            }
-          ]
-        })
+                includePaths: [`${__dirname}/src/style`],
+              },
+            },
+          ],
+        }),
       },
-    ]
-  }
-}
+    ],
+  },
+};
