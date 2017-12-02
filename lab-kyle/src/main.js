@@ -3,18 +3,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './style/main.scss';
-import {say} from 'cowsay';
+import {say} from 'Cowsay';
 
-const main = document.getElementsByTagName('div');
 
-class Heading extends React.Component {
-  constructor(props){
-    super(props);
-  }
+const main = document.getElementById('main');
 
-  render(){
+class Header extends React.Component {
+  render() {
     return (
-      <header>Generate Cowsay Lorem</header>
+      <header>
+        <h1>Generate Cowsay Lorem</h1>
+      </header>
     )
   }
 }
+
+class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      text: 'woof'
+    }
+  }
+  render(){
+    return (
+      <div>
+      <Header />
+      </div>
+    )
+  }
+}
+ReactDOM.render(<App/>, main);
